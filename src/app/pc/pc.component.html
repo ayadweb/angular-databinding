@@ -1,0 +1,37 @@
+<div class="container">
+<div class="row">
+<div class="col-12">
+<form>
+  <div class="form-group">
+    <label for="">Marque</label>
+    <input type="text" class="form-control" name="mrq" [(ngModel)]="pc.marque" >
+  </div>
+  <div class="form-group">
+    <label for="">Système</label>
+    <select class="form-control" name="sys" [(ngModel)]="pc.syst" >
+      <option *ngFor="let s of syst" value="{{s}}">{{s}}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="">Prix</label>
+    <input type="text" class="form-control" name="prix" [(ngModel)]="pc.prix" >
+  </div>
+  <button class="btn btn-danger col-12" (click)="addPC()">Ajouter PC</button>
+
+</form>
+</div>
+</div>
+<div class="row" *ngIf="PCS.length>0">
+  <div class="col-12">
+    <h2>Il y a {{PCS.length}} ordinateurs</h2>
+    <table class="table table-striped">
+      <thead>
+       <tr><th>N°</th><th>Marque</th><th>Système</th><th>Prix</th></tr>
+       </thead>
+       <tbody>
+          <tr *ngFor="let p of PCS; let i=index"><th>{{i+1}}</th><td>{{p.marque}}</td><td>{{p.syst}}</td><td>{{p.prix}}</td></tr>
+      </tbody>
+     </table>
+  </div>
+</div>
+</div>
